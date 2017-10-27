@@ -24,14 +24,14 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="#" onlcick="openTab(event, 'orders')" >Flash Food</a>
+    <a class="navbar-brand" href="#" onclick="openTab(event, 'default')">Flash Food</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="#" onclick="openTab(event, 'default')">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
           </a>
@@ -61,6 +61,50 @@
 
   <div class="content-wrapper">
     <div class="container-fluid">
+      <div class="tabcontent" id="default">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="#">Dashboard</a>
+          </li>
+        </ol>
+        <!-- Example DataTables Card-->
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fa fa-table"></i> Statistics</div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Dish Name</th>
+                      <th>Quantity Offered</th>
+                      <th>Quantity Sold</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th>Date</th>
+                      <th>Dish Name</th>
+                      <th>Quantity Offered</th>
+                      <th>Quantity Sold</th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+                    <tr>
+                      <td>27/10/2017</td>
+                      <td>Butter Chicken</td>
+                      <td>21</td>
+                      <td>13</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="card-footer small text-muted">Updated at 11:59 PM</div>
+          </div>
+      </div>
 
       <div class="tabcontent" id="orders">
         <!-- Breadcrumbs-->
@@ -76,7 +120,7 @@
             <i class="fa fa-table"></i> Orders</div>
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="dataTable2" width="100%" cellspacing="0">
                   <thead>
                     <tr>
                       <th>Order Id</th>
@@ -114,39 +158,36 @@
           </div>
       </div>
 
-
-            <div class="tabcontent" id="addOffer">
-              <!-- Breadcrumbs-->
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                  <a href="#">Dashboard</a>
-                </li>
-                <li class="breadcrumb-item active">Add Offer</li>
-              </ol>
-              <!-- Example DataTables Card-->
-              <div class="card mb-3">
-                <div class="card-header">
-                  <i class="fa fa-table"></i> Add Offer</div>
-                  <div id="offerAddition" class="card-body">
-                    <div class="row form-group">
-                      <input type="text" class="col-sm-2" name="dish" placeholder="Dish Name" required/>
-                      <input type="number" class="col-sm-2" name="quantity" placeholder="Quantity" required/>
-                      <input type="number" class="col-sm-2" name="origp" placeholder="Original Price" required/>
-                      <input type="number" class="col-sm-2" name="offp" placeholder="Offer Price" required/>
-                      <input type="text" class="col-sm-2" name="acc" placeholder="Accompaniment" required/>
-                      <button id="offerPlus1" onclick="addOfferFields()" class="btn btn-default" href="#">
-                        <i class="fa fa-plus-circle"></i> Add
-                      </button>
-                    </div>
-                  </div>
-                  <button id="offerDone" onclick="submitOffers()" class="btn btn-default" href="#">
-                    <i class="fa fa-check"></i> Submit
+      <div class="tabcontent" id="addOffer">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="#">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active">Add Offer</li>
+        </ol>
+        <!-- Example DataTables Card-->
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fa fa-table"></i> Add Offer</div>
+              <div id="offerAddition" class="card-body">
+                <div class="row form-group">
+                  <input type="text" class="col-sm-2" name="dish" placeholder="Dish Name" required/>
+                  <input type="number" class="col-sm-2" name="quantity" placeholder="Quantity" required/>
+                  <input type="number" class="col-sm-2" name="origp" placeholder="Original Price" required/>
+                  <input type="number" class="col-sm-2" name="offp" placeholder="Offer Price" required/>
+                  <input type="text" class="col-sm-2" name="acc" placeholder="Accompaniment" required/>
+                  <button id="offerPlus1" onclick="addOfferFields()" class="btn btn-default" href="#">
+                    <i class="fa fa-plus-circle"></i> Add
                   </button>
-                  <div class="card-footer small text-muted">Updated at 11:59 PM</div>
                 </div>
+              </div>
+              <button id="offerDone" onclick="submitOffers()" class="btn btn-default" href="#">
+                <i class="fa fa-check"></i> Submit
+              </button>
+              <div class="card-footer small text-muted">Updated at 11:59 PM</div>
             </div>
-
-
+        </div>
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
