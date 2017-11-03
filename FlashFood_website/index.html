@@ -182,11 +182,19 @@
             <i class="fa fa-table"></i> Add Offer</div>
               <div id="offerAddition" class="card-body">
                 <div class="row form-group">
-                  <input type="text" class="col-sm-2" name="dish" placeholder="Dish Name" required/>
-                  <input type="number" class="col-sm-2" name="quantity" placeholder="Quantity" required/>
-                  <input type="number" class="col-sm-2" name="origp" placeholder="Original Price" required/>
-                  <input type="number" class="col-sm-2" name="offp" placeholder="Offer Price" required/>
-                  <input type="text" class="col-sm-2" name="acc" placeholder="Accompaniment" required/>
+                  <input type="text" name="dish" placeholder="Dish Name" required/>
+                </div>
+                <div class="row form-group">
+                  <input type="number" name="quantity" placeholder="Quantity" required/>
+                </div>
+                <div class="row form-group">
+                  <input type="number" name="origp" placeholder="Original Price" required/>
+                </div>
+                <div class="row form-group">
+                  <input type="number" name="offp" placeholder="Offer Price" required/>
+                </div>
+                <div class="row form-group">
+                  <input type="text" name="acc" placeholder="Accompaniment 1" required/>
                   <button id="offerPlus1" onclick="addOfferFields()" class="btn btn-default" href="#">
                     <i class="fa fa-plus-circle"></i> Add
                   </button>
