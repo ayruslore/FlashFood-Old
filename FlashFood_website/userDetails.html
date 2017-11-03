@@ -29,9 +29,8 @@
           <label for="Phone">Phone</label>
           <input class="form-control" id="phone" type="tel" placeholder="Enter Phone No.">
         </div>
-        Preferences
         <div class="form-group">
-          <label>
+          <!--label>
             <div class="iradio">
               <input type="checkbox" value="Nonveg" name="pref">
               Non Veg
@@ -40,7 +39,8 @@
               <input type="checkbox" value="Nonveg" name="pref">
               Veg
             </div>
-          </label>
+          </label-->
+           <div id="map" style="width:350px;height:200px"></div>
         </div>
         <a class="btn btn-primary btn-block" onclick="submitUserData()" href="#">Continue</a>
       </div>
@@ -48,11 +48,13 @@
   </div>
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzgAZBmgrirmm6wFEYxZ9hAjtVShuiATI"></script>
+  <script src="js/map.js"></script>
   <script src="js/location.js"></script>
-  <script src="js/submitUserData.js"></script>
   <script>
     getLocation();
   </script>
+  <script src="js/submitUserData.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- Core plugin JavaScript-->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
