@@ -9,6 +9,8 @@ dir_con = red(host = '13.126.191.137',port = 6379,db = 0, password = 'dKoO2KDuqS
 #connection with pottery client 
 pot_con = red.from_url('redis://:dKoO2KDuqSrD@13.126.191.137:6379/')
 
+rest_ids = NextId(key='rest-ids', masters={pot_con})
+
 #string encode with b prefix
 def bytify(strung):
 	return bytes(strung, encoding = "ascii")
@@ -34,18 +36,28 @@ User: pottery dictionary
 -bool subscribed
 -list of blacklisted restaurants
 '''
+#/addUser
 def addUser(body):
 	key = "user:"+str(body['id'])+":details"
 	user = redDict(redis = pot_con, key = key)
-	user['name']=body['name']
-	user['lat']=body['lat']
-	user['long']=body['long']
-	user['subscribed']=body['subscribed']
-	user[]=body[] 
+	for key in body:
+		user[key] = body[key] 
 
-d = {'id':23,"name":"nihal"}
-
+#d = {'id':23,"name":"nihal"}
 #addUser(d)
+
+#/updateUser
+def updateUser(body):
+	key = "user"+str(body["id"])+":details"
+	user = redDict(redis = pot_con, key = key)
+	for key in body:
+		if key != 'id':
+			user[key] = body[key]
+
+#selectOffer
+
+
+
 
 '''
 Restaurant: pottery dictionary
@@ -57,13 +69,46 @@ Restaurant: pottery dictionary
 -extra dets
 '''
 
+def addRestaurant(body):
+	rest_id = next(rest_ids)
+	key = "rest:"+str(rest_id)+":details"
+	rest = redDict(redis = pot_con, key = key)
+	for key in body:
+		rest[key] = body[key]
+
+def updateRestaurant(body):
+	key = "rest:"+str(body["id"])+":details"
+	rest = redDict(redis = pot_con, key = key)
+	for key in body:
+		rest[key] = body[key]
 
 
+'''
+Offers
+-id
+-restId
+-qty_left
+-qty_sold
+-accompaniments
+-dishName
+-originalPrice
+-offerPrice
+'''
+
+def addOffer(body):
+
+def claimOffer(body):
 
 
+'''
+Orders
+-orderId
+-OfferId
+-usrId
+-qty
+-accompanyments
+-status
+-delivery boi
+-
 
-
-
-
-
-
+'''
